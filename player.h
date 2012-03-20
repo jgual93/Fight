@@ -7,18 +7,23 @@
 class player
 {
     public:
-        player();
+        player(int h, int m, int e, int f, int r);
         //chooses class and sets player name.
         void chooseClass();
+        int getHealth()const;
+        int getMana()const;
+        int getEnergy()const;
+        int getFocus()const;
+        int getRage()const;
     protected:
     private:
         std::string playerClass;
         std::string playerName;
-        int health;//player health
-        int mana;//mage resource
-        int energy;//rogue resource
-        int focus;//
-        int rage;
+        int health; //player health
+        int mana;   //mage resource
+        int energy; //rogue resource
+        int focus;  //hunter resource
+        int rage;   //warrior resource
 };
 
 #endif // PLAYER_H

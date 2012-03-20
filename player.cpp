@@ -1,9 +1,12 @@
 #include "player.h"
 
-
-player::player()
+player::player(int h, int m, int e, int f, int r)
 {
-
+    health = h;
+    mana = m;
+    energy = e;
+    focus = f;
+    rage = r;
 }
 //chooses class and sets players name.
 void player::chooseClass(){
@@ -24,4 +27,25 @@ void player::chooseClass(){
     else
         std::cout << "Please enter a valid class: ";
     }
+}
+
+int player::getHealth()const{
+    return health;
+}
+
+int player::getMana()const{
+    return mana;
+}
+
+int player::getEnergy()const{
+    return energy;
+
+}
+
+int player::getFocus()const{
+    return focus;
+}
+
+int player::getRage()const{
+    return rage;
 }
