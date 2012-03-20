@@ -1,31 +1,47 @@
 #include "player.h"
 
-player::player(int h, int m, int e, int f, int r)
+player::player()
 {
-    health = h;
-    mana = m;
-    energy = e;
-    focus = f;
-    rage = r;
+    health = 100;
+    mana = 100;
+    energy = 100;
+    focus = 100;
+    rage = 100;
+    player::chooseClass();
 }
 //chooses class and sets players name.
 void player::chooseClass(){
     std::cout << "Hello, and welcome to Fight! To start, choose a class(Hunter, Warrior, Mage, or Rogue): ";
     while(true){
     std::cin >> playerClass;
-    if(playerClass == "hunter" || playerClass == "warrior" || playerClass == "mage" || playerClass == "rogue"){
+    if(islower(playerClass[0])){
         playerClass[0] -= 32;
-        std::cout << "You chose to play as a " << playerClass << ". Now choose a name: ";
-        std::cin >> playerName;
-        break;
     }
-    else if(playerClass == "Hunter" || playerClass == "Warrior" || playerClass == "Mage" || playerClass == "Rogue"){
-        std::cout << "You chose to play as a " << playerClass << ". Now choose a name: ";
-        std::cin >> playerName;
+    if(playerClass == "Hunter" || playerClass == "Warrior" || playerClass == "Mage" || playerClass == "Rogue")
         break;
-    }
-    else
+    else{
         std::cout << "Please enter a valid class: ";
+    }
+    }
+        std::cout << "You chose to play as a " << playerClass << ". Now choose a name: ";
+        std::cin >> playerName;
+    if(islower(playerName[0]))
+        playerName[0] -= 32;
+    std::cout << "Ok, so you're a " << playerClass << " and your name is " << playerName << ".\n";
+}
+
+void player::fight(){
+    if(playerClass == "Hunter"){
+        std::cout << "You have " << getHealth() << " health and " << getFocus() << " focus.\n";
+    }
+    else if(playerClass == "Warrior"){
+        std::cout << "You have " << getHealth() << " health and " << getRage() << " rage.\n";
+    }
+    else if(playerClass == "Mage"){
+        std::cout << "You have " << getHealth() << " health and " << getMana() << " mana.\n";
+    }
+    else{
+        std::cout << "You have " << getHealth() << " health and " << getEnergy() << " energy.\n";
     }
 }
 
@@ -48,4 +64,24 @@ int player::getFocus()const{
 
 int player::getRage()const{
     return rage;
+}
+
+void player::setHealth(int h){
+    health = h;
+}
+
+void player::setMana(int m){
+    mana = m;
+}
+
+void player::setEnergy(int e){
+    energy = e;
+}
+
+void player::setFocus(int f){
+    focus = f;
+}
+
+void player::setRage(int r){
+    rage = r;
 }

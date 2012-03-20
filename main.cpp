@@ -1,17 +1,16 @@
 #include <iostream>
 #include "player.h"
+#include "enemy.h"
 
 
 int main(){
-    player a(100,100,100,100,100);
+    player a;
+    enemy b;
 
-    a.chooseClass();
-    std::cout << a.getHealth();
-    std::cout << a.getMana();
-    std::cout << a.getEnergy();
-    std::cout << a.getFocus();
-    std::cout << a.getRage();
-
+    while(1){
+        a.fight();
+        break;
+    }
 
     return 0;
 }
