@@ -4,7 +4,6 @@
 #include <string>
 #include <ctype.h>
 
-
 class player
 {
     public:
@@ -31,6 +30,7 @@ class player
         int energy; //rogue resource
         int focus;  //hunter resource
         int rage;   //warrior resource
+
 };
 
 #endif // PLAYER_H

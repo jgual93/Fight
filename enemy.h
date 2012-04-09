@@ -1,6 +1,8 @@
 #ifndef ENEMY_H
 #define ENEMY_H
-
+#include <string>
+#include <iostream>
+#include <ctype.h>
 
 class enemy
 {
@@ -17,6 +19,7 @@ class enemy
         void setEnergy(int e);
         void setFocus(int f);
         void setRage(int r);
+        std::string enemyClass;
     protected:
     private:
         int health; //player health

@@ -10,7 +10,18 @@ enemy::enemy()
 }
 
 void enemy::chooseEnemy(){
-
+    std::cout << "Now choose an enemy class to fight against: ";
+    while(true){
+        std::cin >> enemyClass;
+        if(islower(enemyClass[0])){
+            enemyClass[0] -= 32;
+        }
+        if(enemyClass == "Hunter" || enemyClass == "Warrior" || enemyClass == "Mage" || enemyClass == "Rogue")
+            break;
+        else{
+            std::cout << "Please enter a valid enemy class: ";
+        }
+    }
 }
 
 int enemy::getHealth()const{
